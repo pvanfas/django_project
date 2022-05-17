@@ -32,15 +32,11 @@ class Skill(BaseModel):
         return reverse_lazy("jobs:company_delete", kwargs={"pk": self.pk})
 
     def get_fields(self):
-        return [
-            (
-                field.verbose_name.title(),
-                field.value_from_object(self)
-                if field.is_relation
-                else field.value_from_object(self),
-            )
-            for field in self._meta.fields
-        ]
+        return [(
+            field.verbose_name.title(),
+            field.value_from_object(self)
+            if field.is_relation else field.value_from_object(self),
+        ) for field in self._meta.fields]
 
 
 class Job(BaseModel):
@@ -50,9 +46,9 @@ class Job(BaseModel):
     company = models.CharField(max_length=128)
     job_requirment = models.CharField(max_length=128)
     salary = models.CharField(max_length=128)
-    job_location = models.ForeignKey(
-        State, related_name="applied_state", on_delete=models.CASCADE
-    )
+    job_location = models.ForeignKey(State,
+                                     related_name="applied_state",
+                                     on_delete=models.CASCADE)
     job_description = models.TextField()
 
     class Meta:
@@ -72,12 +68,8 @@ class Job(BaseModel):
         return reverse_lazy("jobs:job_delete", kwargs={"pk": self.pk})
 
     def get_fields(self):
-        return [
-            (
-                field.verbose_name.title(),
-                field.value_from_object(self)
-                if field.is_relation
-                else field.value_from_object(self),
-            )
-            for field in self._meta.fields
-        ]
+        return [(
+            field.verbose_name.title(),
+            field.value_from_object(self)
+            if field.is_relation else field.value_from_object(self),
+        ) for field in self._meta.fields]

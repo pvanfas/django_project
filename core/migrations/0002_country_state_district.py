@@ -26,7 +26,8 @@ class Migration(migrations.Migration):
                         serialize=False,
                     ),
                 ),
-                ("created", models.DateTimeField(auto_now_add=True, db_index=True)),
+                ("created",
+                 models.DateTimeField(auto_now_add=True, db_index=True)),
                 ("updated", models.DateTimeField(auto_now_add=True)),
                 ("is_active", models.BooleanField(default=True)),
                 ("name", models.CharField(max_length=128)),
@@ -49,15 +50,16 @@ class Migration(migrations.Migration):
                         serialize=False,
                     ),
                 ),
-                ("created", models.DateTimeField(auto_now_add=True, db_index=True)),
+                ("created",
+                 models.DateTimeField(auto_now_add=True, db_index=True)),
                 ("updated", models.DateTimeField(auto_now_add=True)),
                 ("is_active", models.BooleanField(default=True)),
                 ("name", models.CharField(max_length=128)),
                 (
                     "country",
                     models.ForeignKey(
-                        on_delete=django.db.models.deletion.PROTECT, to="core.country"
-                    ),
+                        on_delete=django.db.models.deletion.PROTECT,
+                        to="core.country"),
                 ),
             ],
             options={
@@ -78,21 +80,22 @@ class Migration(migrations.Migration):
                         serialize=False,
                     ),
                 ),
-                ("created", models.DateTimeField(auto_now_add=True, db_index=True)),
+                ("created",
+                 models.DateTimeField(auto_now_add=True, db_index=True)),
                 ("updated", models.DateTimeField(auto_now_add=True)),
                 ("is_active", models.BooleanField(default=True)),
                 ("name", models.CharField(max_length=128)),
                 (
                     "country",
                     models.ForeignKey(
-                        on_delete=django.db.models.deletion.PROTECT, to="core.country"
-                    ),
+                        on_delete=django.db.models.deletion.PROTECT,
+                        to="core.country"),
                 ),
                 (
                     "state",
                     models.ForeignKey(
-                        on_delete=django.db.models.deletion.PROTECT, to="core.state"
-                    ),
+                        on_delete=django.db.models.deletion.PROTECT,
+                        to="core.state"),
                 ),
             ],
             options={

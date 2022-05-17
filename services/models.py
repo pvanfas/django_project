@@ -11,12 +11,13 @@ class Category(BaseModel):
     title_ar = models.CharField(max_length=128)
     priority = models.PositiveIntegerField()
     icon = VersatileImageField(upload_to="categories/icons")
-    featured_image = VersatileImageField(upload_to="categories/featured_images")
+    featured_image = VersatileImageField(
+        upload_to="categories/featured_images")
     description = HTMLField()
     description_ar = models.TextField()
 
     class Meta:
-        ordering = ("-priority",)
+        ordering = ("-priority", )
         verbose_name = "Category"
         verbose_name_plural = "Categories"
 
@@ -36,10 +37,8 @@ class Category(BaseModel):
         return reverse_lazy("services:category_delete", kwargs={"pk": self.pk})
 
     def get_fields(self):
-        return [
-            (field.verbose_name.title(), field.value_to_object(self))
-            for field in self._meta.fields
-        ]
+        return [(field.verbose_name.title(), field.value_to_object(self))
+                for field in self._meta.fields]
 
 
 class Service(BaseModel):
@@ -49,9 +48,9 @@ class Service(BaseModel):
         ("PER_WORK", "PER_WORK"),
     )
 
-    category = models.ForeignKey(
-        Category, limit_choices_to={"is_active": True}, on_delete=models.PROTECT
-    )
+    category = models.ForeignKey(Category,
+                                 limit_choices_to={"is_active": True},
+                                 on_delete=models.PROTECT)
     title = models.CharField(max_length=128)
     title_ar = models.CharField(max_length=128)
     subtitle = models.CharField(max_length=128)
@@ -80,7 +79,5 @@ class Service(BaseModel):
         return reverse_lazy("services:service_delete", kwargs={"pk": self.pk})
 
     def get_fields(self):
-        return [
-            (field.verbose_name.title(), field.value_to_object(self))
-            for field in self._meta.fields
-        ]
+        return [(field.verbose_name.title(), field.value_to_object(self))
+                for field in self._meta.fields]

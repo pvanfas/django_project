@@ -25,7 +25,8 @@ class Migration(migrations.Migration):
                         serialize=False,
                     ),
                 ),
-                ("created", models.DateTimeField(auto_now_add=True, db_index=True)),
+                ("created",
+                 models.DateTimeField(auto_now_add=True, db_index=True)),
                 ("updated", models.DateTimeField(auto_now_add=True)),
                 ("is_active", models.BooleanField(default=True)),
                 ("name", models.CharField(max_length=128)),
@@ -38,7 +39,5 @@ class Migration(migrations.Migration):
                 "verbose_name_plural": "Skills",
             },
         ),
-        migrations.DeleteModel(
-            name="Company",
-        ),
+        migrations.DeleteModel(name="Company", ),
     ]

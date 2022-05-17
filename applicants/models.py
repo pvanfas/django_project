@@ -11,6 +11,7 @@ class Applicant(BaseModel):
     phone = models.CharField(max_length=128)
     password = models.CharField(max_length=30)
     image = VersatileImageField(upload_to="applicant/prof_image")
+
     # resume = models.FileField(upload_to="applicant/resumes")
 
     class Meta:
@@ -21,24 +22,23 @@ class Applicant(BaseModel):
             return str(self.name)
 
     def get_absolute_url(self):
-        return reverse_lazy("applicants:applicant_detail", kwargs={"pk": self.pk})
+        return reverse_lazy("applicants:applicant_detail",
+                            kwargs={"pk": self.pk})
 
     def get_update_url(self):
-        return reverse_lazy("applicants:applicant_update", kwargs={"pk": self.pk})
+        return reverse_lazy("applicants:applicant_update",
+                            kwargs={"pk": self.pk})
 
     def get_delete_url(self):
-        return reverse_lazy("applicants:applicant_delete", kwargs={"pk": self.pk})
+        return reverse_lazy("applicants:applicant_delete",
+                            kwargs={"pk": self.pk})
 
     def get_fields(self):
-        return [
-            (
-                field.verbose_name.title(),
-                field.value_from_object(self)
-                if field.is_relation
-                else field.value_from_object(self),
-            )
-            for field in self._meta.fields
-        ]
+        return [(
+            field.verbose_name.title(),
+            field.value_from_object(self)
+            if field.is_relation else field.value_from_object(self),
+        ) for field in self._meta.fields]
 
 
 class JobApplication(BaseModel):
@@ -59,21 +59,20 @@ class JobApplication(BaseModel):
             return str(self.name)
 
     def get_absolute_url(self):
-        return reverse_lazy("applicants:jobapplicant_detail", kwargs={"pk": self.pk})
+        return reverse_lazy("applicants:jobapplicant_detail",
+                            kwargs={"pk": self.pk})
 
     def get_update_url(self):
-        return reverse_lazy("applicants:jobapplicant_update", kwargs={"pk": self.pk})
+        return reverse_lazy("applicants:jobapplicant_update",
+                            kwargs={"pk": self.pk})
 
     def get_delete_url(self):
-        return reverse_lazy("applicants:jobapplicant_delete", kwargs={"pk": self.pk})
+        return reverse_lazy("applicants:jobapplicant_delete",
+                            kwargs={"pk": self.pk})
 
     def get_fields(self):
-        return [
-            (
-                field.verbose_name.title(),
-                field.value_from_object(self)
-                if field.is_relation
-                else field.value_from_object(self),
-            )
-            for field in self._meta.fields
-        ]
+        return [(
+            field.verbose_name.title(),
+            field.value_from_object(self)
+            if field.is_relation else field.value_from_object(self),
+        ) for field in self._meta.fields]

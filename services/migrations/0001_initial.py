@@ -28,7 +28,8 @@ class Migration(migrations.Migration):
                         serialize=False,
                     ),
                 ),
-                ("created", models.DateTimeField(auto_now_add=True, db_index=True)),
+                ("created",
+                 models.DateTimeField(auto_now_add=True, db_index=True)),
                 ("updated", models.DateTimeField(auto_now_add=True)),
                 ("is_active", models.BooleanField(default=True)),
                 ("title", models.CharField(max_length=128)),
@@ -37,14 +38,12 @@ class Migration(migrations.Migration):
                 (
                     "icon",
                     versatileimagefield.fields.VersatileImageField(
-                        upload_to="categories/icons"
-                    ),
+                        upload_to="categories/icons"),
                 ),
                 (
                     "featured_image",
                     versatileimagefield.fields.VersatileImageField(
-                        upload_to="categories/featured_images"
-                    ),
+                        upload_to="categories/featured_images"),
                 ),
                 ("description", tinymce.models.HTMLField()),
                 ("description_ar", models.TextField()),
@@ -52,7 +51,7 @@ class Migration(migrations.Migration):
             options={
                 "verbose_name": "Category",
                 "verbose_name_plural": "Categories",
-                "ordering": ("-priority",),
+                "ordering": ("-priority", ),
             },
         ),
         migrations.CreateModel(
@@ -68,7 +67,8 @@ class Migration(migrations.Migration):
                         serialize=False,
                     ),
                 ),
-                ("created", models.DateTimeField(auto_now_add=True, db_index=True)),
+                ("created",
+                 models.DateTimeField(auto_now_add=True, db_index=True)),
                 ("updated", models.DateTimeField(auto_now_add=True)),
                 ("is_active", models.BooleanField(default=True)),
                 ("title", models.CharField(max_length=128)),
@@ -78,14 +78,12 @@ class Migration(migrations.Migration):
                 (
                     "icon",
                     versatileimagefield.fields.VersatileImageField(
-                        upload_to="services/icons"
-                    ),
+                        upload_to="services/icons"),
                 ),
                 (
                     "featured_image",
                     versatileimagefield.fields.VersatileImageField(
-                        upload_to="services/featured_images"
-                    ),
+                        upload_to="services/featured_images"),
                 ),
                 ("description", models.TextField()),
                 ("description_ar", models.TextField()),
@@ -100,7 +98,8 @@ class Migration(migrations.Migration):
                         max_length=128,
                     ),
                 ),
-                ("base_price", models.DecimalField(decimal_places=2, max_digits=128)),
+                ("base_price",
+                 models.DecimalField(decimal_places=2, max_digits=128)),
                 (
                     "category",
                     models.ForeignKey(

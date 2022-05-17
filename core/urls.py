@@ -32,10 +32,12 @@ urlpatterns = [
         login_required(views.CountryDeleteView.as_view()),
         name="country_delete",
     ),
-    path("states/", login_required(views.StateListView.as_view()), name="state_list"),
-    path(
-        "states/new/", login_required(views.StateCreateView.as_view()), name="state_new"
-    ),
+    path("states/",
+         login_required(views.StateListView.as_view()),
+         name="state_list"),
+    path("states/new/",
+         login_required(views.StateCreateView.as_view()),
+         name="state_new"),
     path(
         "states/<str:pk>/",
         login_required(views.StateDetailView.as_view()),

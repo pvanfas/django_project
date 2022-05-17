@@ -7,9 +7,10 @@ from core.choices import NATIONALITY_CHOICES
 
 
 class BaseModel(models.Model):
-    id = models.UUIDField(
-        primary_key=True, default=uuid.uuid4, editable=False, blank=True
-    )
+    id = models.UUIDField(primary_key=True,
+                          default=uuid.uuid4,
+                          editable=False,
+                          blank=True)
     created = models.DateTimeField(db_index=True, auto_now_add=True)
     updated = models.DateTimeField(auto_now_add=True)
     is_active = models.BooleanField(default=True)
@@ -26,9 +27,9 @@ class Area(BaseModel):
 
 
 class Country(BaseModel):
-    name = models.CharField(
-        max_length=128, choices=NATIONALITY_CHOICES, default="Indian"
-    )
+    name = models.CharField(max_length=128,
+                            choices=NATIONALITY_CHOICES,
+                            default="Indian")
 
     class Meta:
         verbose_name = "Country"
@@ -47,15 +48,11 @@ class Country(BaseModel):
         return reverse_lazy("core:country_delete", kwargs={"pk": self.pk})
 
     def get_fields(self):
-        return [
-            (
-                field.verbose_name.title(),
-                field.value_from_object(self)
-                if field.is_relation
-                else field.value_from_object(self),
-            )
-            for field in self._meta.fields
-        ]
+        return [(
+            field.verbose_name.title(),
+            field.value_from_object(self)
+            if field.is_relation else field.value_from_object(self),
+        ) for field in self._meta.fields]
 
 
 class State(BaseModel):
@@ -79,15 +76,11 @@ class State(BaseModel):
         return reverse_lazy("core:state_delete", kwargs={"pk": self.pk})
 
     def get_fields(self):
-        return [
-            (
-                field.verbose_name.title(),
-                field.value_from_object(self)
-                if field.is_relation
-                else field.value_from_object(self),
-            )
-            for field in self._meta.fields
-        ]
+        return [(
+            field.verbose_name.title(),
+            field.value_from_object(self)
+            if field.is_relation else field.value_from_object(self),
+        ) for field in self._meta.fields]
 
 
 class District(BaseModel):
@@ -112,12 +105,8 @@ class District(BaseModel):
         return reverse_lazy("core:district_delete", kwargs={"pk": self.pk})
 
     def get_fields(self):
-        return [
-            (
-                field.verbose_name.title(),
-                field.value_from_object(self)
-                if field.is_relation
-                else field.value_from_object(self),
-            )
-            for field in self._meta.fields
-        ]
+        return [(
+            field.verbose_name.title(),
+            field.value_from_object(self)
+            if field.is_relation else field.value_from_object(self),
+        ) for field in self._meta.fields]

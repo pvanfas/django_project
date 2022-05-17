@@ -26,7 +26,8 @@ class Migration(migrations.Migration):
                         serialize=False,
                     ),
                 ),
-                ("created", models.DateTimeField(auto_now_add=True, db_index=True)),
+                ("created",
+                 models.DateTimeField(auto_now_add=True, db_index=True)),
                 ("updated", models.DateTimeField(auto_now_add=True)),
                 ("is_active", models.BooleanField(default=True)),
                 ("name", models.CharField(max_length=128)),
@@ -36,8 +37,7 @@ class Migration(migrations.Migration):
                 (
                     "image",
                     versatileimagefield.fields.VersatileImageField(
-                        upload_to="applicant/prof_image"
-                    ),
+                        upload_to="applicant/prof_image"),
                 ),
             ],
             options={
@@ -58,7 +58,8 @@ class Migration(migrations.Migration):
                         serialize=False,
                     ),
                 ),
-                ("created", models.DateTimeField(auto_now_add=True, db_index=True)),
+                ("created",
+                 models.DateTimeField(auto_now_add=True, db_index=True)),
                 ("updated", models.DateTimeField(auto_now_add=True)),
                 ("is_active", models.BooleanField(default=True)),
                 ("name", models.CharField(max_length=128)),
@@ -70,10 +71,10 @@ class Migration(migrations.Migration):
                 (
                     "sign",
                     versatileimagefield.fields.VersatileImageField(
-                        upload_to="jobapplication/signature"
-                    ),
+                        upload_to="jobapplication/signature"),
                 ),
-                ("resume", models.FileField(upload_to="jobapplication/resumes")),
+                ("resume",
+                 models.FileField(upload_to="jobapplication/resumes")),
             ],
             options={
                 "verbose_name": "JobApplicantion",

@@ -12,16 +12,17 @@ class Migration(migrations.Migration):
     ]
 
     operations = [
-        migrations.DeleteModel(
-            name="profile",
-        ),
+        migrations.DeleteModel(name="profile", ),
         migrations.RemoveField(
             model_name="state",
             name="country",
         ),
         migrations.AlterModelOptions(
             name="company",
-            options={"verbose_name": "Company", "verbose_name_plural": "Companies"},
+            options={
+                "verbose_name": "Company",
+                "verbose_name_plural": "Companies"
+            },
         ),
         migrations.AlterField(
             model_name="job",
@@ -32,10 +33,6 @@ class Migration(migrations.Migration):
                 to="core.state",
             ),
         ),
-        migrations.DeleteModel(
-            name="Country",
-        ),
-        migrations.DeleteModel(
-            name="State",
-        ),
+        migrations.DeleteModel(name="Country", ),
+        migrations.DeleteModel(name="State", ),
     ]

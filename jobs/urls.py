@@ -6,8 +6,11 @@ from . import views
 app_name = "jobs"
 
 urlpatterns = [
-    path("jobs/", login_required(views.JobListView.as_view()), name="job_list"),
-    path("jobs/new/", login_required(views.JobCreateView.as_view()), name="job_new"),
+    path("jobs/", login_required(views.JobListView.as_view()),
+         name="job_list"),
+    path("jobs/new/",
+         login_required(views.JobCreateView.as_view()),
+         name="job_new"),
     path(
         "jobs/<str:pk>/",
         login_required(views.JobDetailView.as_view()),
@@ -34,10 +37,12 @@ urlpatterns = [
     # path('states/<str:pk>/', login_required(views.StateDetailView.as_view()),name='state_detail'),
     # path('states/update/<str:pk>/', login_required(views.StateUpdateView.as_view()),name='state_update'),
     # path('states/delete/<str:pk>/', login_required(views.StateDeleteView.as_view()),name='state_delete'),
-    path("skills/", login_required(views.SkillListView.as_view()), name="skill_list"),
-    path(
-        "skills/new/", login_required(views.SkillCreateView.as_view()), name="skill_new"
-    ),
+    path("skills/",
+         login_required(views.SkillListView.as_view()),
+         name="skill_list"),
+    path("skills/new/",
+         login_required(views.SkillCreateView.as_view()),
+         name="skill_new"),
     path(
         "skills/<str:pk>/",
         login_required(views.SkillDetailView.as_view()),
