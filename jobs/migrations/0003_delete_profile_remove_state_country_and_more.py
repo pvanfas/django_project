@@ -21,12 +21,14 @@ class Migration(migrations.Migration):
         ),
         migrations.AlterModelOptions(
             name='company',
-            options={'verbose_name': 'Company', 'verbose_name_plural': 'Companies'},
+            options={'verbose_name': 'Company',
+                     'verbose_name_plural': 'Companies'},
         ),
         migrations.AlterField(
             model_name='job',
             name='job_location',
-            field=models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='applied_state', to='core.state'),
+            field=models.ForeignKey(on_delete=django.db.models.deletion.CASCADE,
+                                    related_name='applied_state', to='core.state'),
         ),
         migrations.DeleteModel(
             name='Country',

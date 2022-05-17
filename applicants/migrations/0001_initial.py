@@ -16,7 +16,8 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='Applicant',
             fields=[
-                ('id', models.UUIDField(blank=True, default=uuid.uuid4, editable=False, primary_key=True, serialize=False)),
+                ('id', models.UUIDField(blank=True, default=uuid.uuid4,
+                 editable=False, primary_key=True, serialize=False)),
                 ('created', models.DateTimeField(auto_now_add=True, db_index=True)),
                 ('updated', models.DateTimeField(auto_now_add=True)),
                 ('is_active', models.BooleanField(default=True)),
@@ -24,7 +25,8 @@ class Migration(migrations.Migration):
                 ('email', models.EmailField(max_length=254)),
                 ('phone', models.CharField(max_length=128)),
                 ('password', models.CharField(max_length=30)),
-                ('image', versatileimagefield.fields.VersatileImageField(upload_to='applicant/prof_image')),
+                ('image', versatileimagefield.fields.VersatileImageField(
+                    upload_to='applicant/prof_image')),
             ],
             options={
                 'verbose_name': 'Applicant',
@@ -34,7 +36,8 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='JobApplication',
             fields=[
-                ('id', models.UUIDField(blank=True, default=uuid.uuid4, editable=False, primary_key=True, serialize=False)),
+                ('id', models.UUIDField(blank=True, default=uuid.uuid4,
+                 editable=False, primary_key=True, serialize=False)),
                 ('created', models.DateTimeField(auto_now_add=True, db_index=True)),
                 ('updated', models.DateTimeField(auto_now_add=True)),
                 ('is_active', models.BooleanField(default=True)),
@@ -44,7 +47,8 @@ class Migration(migrations.Migration):
                 ('subject', models.CharField(max_length=128)),
                 ('about', models.TextField()),
                 ('skill', models.CharField(max_length=128)),
-                ('sign', versatileimagefield.fields.VersatileImageField(upload_to='jobapplication/signature')),
+                ('sign', versatileimagefield.fields.VersatileImageField(
+                    upload_to='jobapplication/signature')),
                 ('resume', models.FileField(upload_to='jobapplication/resumes')),
             ],
             options={

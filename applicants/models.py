@@ -30,12 +30,13 @@ class Applicant(BaseModel):
 
     def get_fields(self):
         return [
-        (
-            field.verbose_name.title(),
-            field.value_from_object(self) if field.is_relation else field.value_from_object(self),
-        )
-        for field in self._meta.fields
-    ]
+            (
+                field.verbose_name.title(),
+                field.value_from_object(
+                    self) if field.is_relation else field.value_from_object(self),
+            )
+            for field in self._meta.fields
+        ]
 
 
 class JobApplication(BaseModel):
@@ -66,9 +67,10 @@ class JobApplication(BaseModel):
 
     def get_fields(self):
         return [
-        (
-            field.verbose_name.title(),
-            field.value_from_object(self) if field.is_relation else field.value_from_object(self),
-        )
-        for field in self._meta.fields
-    ]
+            (
+                field.verbose_name.title(),
+                field.value_from_object(
+                    self) if field.is_relation else field.value_from_object(self),
+            )
+            for field in self._meta.fields
+        ]

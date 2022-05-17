@@ -19,6 +19,7 @@ class JobAdmin(CustomAdmin):
 # class ProfileAdmin(CustomAdmin):
 #     pass
 
+
 @admin.register(Skill)
 class SkillAdmin(CustomAdmin):
     pass

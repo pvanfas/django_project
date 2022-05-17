@@ -15,7 +15,8 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='Country',
             fields=[
-                ('id', models.UUIDField(blank=True, default=uuid.uuid4, editable=False, primary_key=True, serialize=False)),
+                ('id', models.UUIDField(blank=True, default=uuid.uuid4,
+                 editable=False, primary_key=True, serialize=False)),
                 ('created', models.DateTimeField(auto_now_add=True, db_index=True)),
                 ('updated', models.DateTimeField(auto_now_add=True)),
                 ('is_active', models.BooleanField(default=True)),
@@ -29,12 +30,14 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='State',
             fields=[
-                ('id', models.UUIDField(blank=True, default=uuid.uuid4, editable=False, primary_key=True, serialize=False)),
+                ('id', models.UUIDField(blank=True, default=uuid.uuid4,
+                 editable=False, primary_key=True, serialize=False)),
                 ('created', models.DateTimeField(auto_now_add=True, db_index=True)),
                 ('updated', models.DateTimeField(auto_now_add=True)),
                 ('is_active', models.BooleanField(default=True)),
                 ('name', models.CharField(max_length=128)),
-                ('country', models.ForeignKey(on_delete=django.db.models.deletion.PROTECT, to='core.country')),
+                ('country', models.ForeignKey(
+                    on_delete=django.db.models.deletion.PROTECT, to='core.country')),
             ],
             options={
                 'verbose_name': 'State',
@@ -44,13 +47,16 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='District',
             fields=[
-                ('id', models.UUIDField(blank=True, default=uuid.uuid4, editable=False, primary_key=True, serialize=False)),
+                ('id', models.UUIDField(blank=True, default=uuid.uuid4,
+                 editable=False, primary_key=True, serialize=False)),
                 ('created', models.DateTimeField(auto_now_add=True, db_index=True)),
                 ('updated', models.DateTimeField(auto_now_add=True)),
                 ('is_active', models.BooleanField(default=True)),
                 ('name', models.CharField(max_length=128)),
-                ('country', models.ForeignKey(on_delete=django.db.models.deletion.PROTECT, to='core.country')),
-                ('state', models.ForeignKey(on_delete=django.db.models.deletion.PROTECT, to='core.state')),
+                ('country', models.ForeignKey(
+                    on_delete=django.db.models.deletion.PROTECT, to='core.country')),
+                ('state', models.ForeignKey(
+                    on_delete=django.db.models.deletion.PROTECT, to='core.state')),
             ],
             options={
                 'verbose_name': 'District',

@@ -5,7 +5,6 @@ from core.choices import NATIONALITY_CHOICES, PASSOUT_CHOICES, ROLE_CHOICES
 from versatileimagefield.fields import VersatileImageField
 
 
-
 class Skill(BaseModel):
     name = models.CharField(max_length=128)
     about = models.TextField()
@@ -30,12 +29,13 @@ class Skill(BaseModel):
 
     def get_fields(self):
         return [
-        (
-            field.verbose_name.title(),
-            field.value_from_object(self) if field.is_relation else field.value_from_object(self),
-        )
-        for field in self._meta.fields
-    ]
+            (
+                field.verbose_name.title(),
+                field.value_from_object(
+                    self) if field.is_relation else field.value_from_object(self),
+            )
+            for field in self._meta.fields
+        ]
 
 
 class Job(BaseModel):
@@ -45,9 +45,9 @@ class Job(BaseModel):
     company = models.CharField(max_length=128)
     job_requirment = models.CharField(max_length=128)
     salary = models.CharField(max_length=128)
-    job_location = models.ForeignKey(State, related_name="applied_state", on_delete=models.CASCADE)
+    job_location = models.ForeignKey(
+        State, related_name="applied_state", on_delete=models.CASCADE)
     job_description = models.TextField()
-
 
     class Meta:
         verbose_name = "Job"
@@ -67,9 +67,10 @@ class Job(BaseModel):
 
     def get_fields(self):
         return [
-        (
-            field.verbose_name.title(),
-            field.value_from_object(self) if field.is_relation else field.value_from_object(self),
-        )
-        for field in self._meta.fields
-    ]
+            (
+                field.verbose_name.title(),
+                field.value_from_object(
+                    self) if field.is_relation else field.value_from_object(self),
+            )
+            for field in self._meta.fields
+        ]

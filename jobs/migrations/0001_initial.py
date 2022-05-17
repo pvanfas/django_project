@@ -16,12 +16,14 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='Company',
             fields=[
-                ('id', models.UUIDField(blank=True, default=uuid.uuid4, editable=False, primary_key=True, serialize=False)),
+                ('id', models.UUIDField(blank=True, default=uuid.uuid4,
+                 editable=False, primary_key=True, serialize=False)),
                 ('created', models.DateTimeField(auto_now_add=True, db_index=True)),
                 ('updated', models.DateTimeField(auto_now_add=True)),
                 ('is_active', models.BooleanField(default=True)),
                 ('name', models.CharField(max_length=128)),
-                ('logo', versatileimagefield.fields.VersatileImageField(upload_to='company/logo')),
+                ('logo', versatileimagefield.fields.VersatileImageField(
+                    upload_to='company/logo')),
                 ('about', models.TextField()),
                 ('location', models.CharField(max_length=128)),
                 ('industry', models.CharField(max_length=128)),
@@ -34,7 +36,8 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='Country',
             fields=[
-                ('id', models.UUIDField(blank=True, default=uuid.uuid4, editable=False, primary_key=True, serialize=False)),
+                ('id', models.UUIDField(blank=True, default=uuid.uuid4,
+                 editable=False, primary_key=True, serialize=False)),
                 ('created', models.DateTimeField(auto_now_add=True, db_index=True)),
                 ('updated', models.DateTimeField(auto_now_add=True)),
                 ('is_active', models.BooleanField(default=True)),
@@ -48,7 +51,8 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='Job',
             fields=[
-                ('id', models.UUIDField(blank=True, default=uuid.uuid4, editable=False, primary_key=True, serialize=False)),
+                ('id', models.UUIDField(blank=True, default=uuid.uuid4,
+                 editable=False, primary_key=True, serialize=False)),
                 ('created', models.DateTimeField(auto_now_add=True, db_index=True)),
                 ('updated', models.DateTimeField(auto_now_add=True)),
                 ('is_active', models.BooleanField(default=True)),
@@ -68,13 +72,15 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='profile',
             fields=[
-                ('id', models.UUIDField(blank=True, default=uuid.uuid4, editable=False, primary_key=True, serialize=False)),
+                ('id', models.UUIDField(blank=True, default=uuid.uuid4,
+                 editable=False, primary_key=True, serialize=False)),
                 ('created', models.DateTimeField(auto_now_add=True, db_index=True)),
                 ('updated', models.DateTimeField(auto_now_add=True)),
                 ('is_active', models.BooleanField(default=True)),
                 ('name', models.CharField(max_length=128)),
                 ('address', models.TextField()),
-                ('image', versatileimagefield.fields.VersatileImageField(upload_to='profile/prof_image')),
+                ('image', versatileimagefield.fields.VersatileImageField(
+                    upload_to='profile/prof_image')),
                 ('resume', models.FileField(upload_to='profile/resumes')),
             ],
             options={
@@ -85,7 +91,8 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='State',
             fields=[
-                ('id', models.UUIDField(blank=True, default=uuid.uuid4, editable=False, primary_key=True, serialize=False)),
+                ('id', models.UUIDField(blank=True, default=uuid.uuid4,
+                 editable=False, primary_key=True, serialize=False)),
                 ('created', models.DateTimeField(auto_now_add=True, db_index=True)),
                 ('updated', models.DateTimeField(auto_now_add=True)),
                 ('is_active', models.BooleanField(default=True)),

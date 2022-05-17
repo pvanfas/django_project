@@ -10,7 +10,8 @@ class Category(BaseModel):
     title_ar = models.CharField(max_length=128)
     priority = models.PositiveIntegerField()
     icon = VersatileImageField(upload_to="categories/icons")
-    featured_image = VersatileImageField(upload_to="categories/featured_images")
+    featured_image = VersatileImageField(
+        upload_to="categories/featured_images")
     description = HTMLField()
     description_ar = models.TextField()
 
@@ -23,7 +24,7 @@ class Category(BaseModel):
         return str(self.title)
 
     def get_services(self):
-        return Service.objects.filter(is_active=True,category=self)
+        return Service.objects.filter(is_active=True, category=self)
 
     def get_absolute_url(self):
         return reverse_lazy('services:category_detail', kwargs={'pk': self.pk})
@@ -39,7 +40,8 @@ class Category(BaseModel):
 
 
 class Service(BaseModel):
-    COST_TYPE_CHOICES = (("HOURLY","HOURLY"),("PER_DAY","PER_DAY"),("PER_WORK","PER_WORK"))
+    COST_TYPE_CHOICES = (("HOURLY", "HOURLY"), ("PER_DAY",
+                         "PER_DAY"), ("PER_WORK", "PER_WORK"))
 
     category = models.ForeignKey(
         Category, limit_choices_to={"is_active": True}, on_delete=models.PROTECT
@@ -52,8 +54,8 @@ class Service(BaseModel):
     featured_image = VersatileImageField(upload_to="services/featured_images")
     description = models.TextField()
     description_ar = models.TextField()
-    cost_type = models.CharField(max_length=128,choices=COST_TYPE_CHOICES)
-    base_price = models.DecimalField(max_digits=128,decimal_places=2)
+    cost_type = models.CharField(max_length=128, choices=COST_TYPE_CHOICES)
+    base_price = models.DecimalField(max_digits=128, decimal_places=2)
 
     class Meta:
         verbose_name = "Service"

@@ -5,8 +5,6 @@ from django.urls import reverse_lazy
 from core.choices import NATIONALITY_CHOICES
 
 
-
-
 class BaseModel(models.Model):
     id = models.UUIDField(
         primary_key=True, default=uuid.uuid4, editable=False, blank=True
@@ -27,7 +25,8 @@ class Area(BaseModel):
 
 
 class Country(BaseModel):
-    name = models.CharField(max_length=128, choices=NATIONALITY_CHOICES, default="Indian")
+    name = models.CharField(
+        max_length=128, choices=NATIONALITY_CHOICES, default="Indian")
 
     class Meta:
         verbose_name = "Country"
@@ -47,13 +46,13 @@ class Country(BaseModel):
 
     def get_fields(self):
         return [
-        (
-            field.verbose_name.title(),
-            field.value_from_object(self) if field.is_relation else field.value_from_object(self),
-        )
-        for field in self._meta.fields
-    ]
-
+            (
+                field.verbose_name.title(),
+                field.value_from_object(
+                    self) if field.is_relation else field.value_from_object(self),
+            )
+            for field in self._meta.fields
+        ]
 
 
 class State(BaseModel):
@@ -78,12 +77,13 @@ class State(BaseModel):
 
     def get_fields(self):
         return [
-        (
-            field.verbose_name.title(),
-            field.value_from_object(self) if field.is_relation else field.value_from_object(self),
-        )
-        for field in self._meta.fields
-    ]
+            (
+                field.verbose_name.title(),
+                field.value_from_object(
+                    self) if field.is_relation else field.value_from_object(self),
+            )
+            for field in self._meta.fields
+        ]
 
 
 class District(BaseModel):
@@ -109,9 +109,10 @@ class District(BaseModel):
 
     def get_fields(self):
         return [
-        (
-            field.verbose_name.title(),
-            field.value_from_object(self) if field.is_relation else field.value_from_object(self),
-        )
-        for field in self._meta.fields
-    ]
+            (
+                field.verbose_name.title(),
+                field.value_from_object(
+                    self) if field.is_relation else field.value_from_object(self),
+            )
+            for field in self._meta.fields
+        ]

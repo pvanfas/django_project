@@ -18,15 +18,18 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='Category',
             fields=[
-                ('id', models.UUIDField(blank=True, default=uuid.uuid4, editable=False, primary_key=True, serialize=False)),
+                ('id', models.UUIDField(blank=True, default=uuid.uuid4,
+                 editable=False, primary_key=True, serialize=False)),
                 ('created', models.DateTimeField(auto_now_add=True, db_index=True)),
                 ('updated', models.DateTimeField(auto_now_add=True)),
                 ('is_active', models.BooleanField(default=True)),
                 ('title', models.CharField(max_length=128)),
                 ('title_ar', models.CharField(max_length=128)),
                 ('priority', models.PositiveIntegerField()),
-                ('icon', versatileimagefield.fields.VersatileImageField(upload_to='categories/icons')),
-                ('featured_image', versatileimagefield.fields.VersatileImageField(upload_to='categories/featured_images')),
+                ('icon', versatileimagefield.fields.VersatileImageField(
+                    upload_to='categories/icons')),
+                ('featured_image', versatileimagefield.fields.VersatileImageField(
+                    upload_to='categories/featured_images')),
                 ('description', tinymce.models.HTMLField()),
                 ('description_ar', models.TextField()),
             ],
@@ -39,7 +42,8 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='Service',
             fields=[
-                ('id', models.UUIDField(blank=True, default=uuid.uuid4, editable=False, primary_key=True, serialize=False)),
+                ('id', models.UUIDField(blank=True, default=uuid.uuid4,
+                 editable=False, primary_key=True, serialize=False)),
                 ('created', models.DateTimeField(auto_now_add=True, db_index=True)),
                 ('updated', models.DateTimeField(auto_now_add=True)),
                 ('is_active', models.BooleanField(default=True)),
@@ -47,13 +51,18 @@ class Migration(migrations.Migration):
                 ('title_ar', models.CharField(max_length=128)),
                 ('subtitle', models.CharField(max_length=128)),
                 ('subtitle_ar', models.CharField(max_length=128)),
-                ('icon', versatileimagefield.fields.VersatileImageField(upload_to='services/icons')),
-                ('featured_image', versatileimagefield.fields.VersatileImageField(upload_to='services/featured_images')),
+                ('icon', versatileimagefield.fields.VersatileImageField(
+                    upload_to='services/icons')),
+                ('featured_image', versatileimagefield.fields.VersatileImageField(
+                    upload_to='services/featured_images')),
                 ('description', models.TextField()),
                 ('description_ar', models.TextField()),
-                ('cost_type', models.CharField(choices=[('HOURLY', 'HOURLY'), ('PER_DAY', 'PER_DAY'), ('PER_WORK', 'PER_WORK')], max_length=128)),
-                ('base_price', models.DecimalField(decimal_places=2, max_digits=128)),
-                ('category', models.ForeignKey(limit_choices_to={'is_active': True}, on_delete=django.db.models.deletion.PROTECT, to='services.category')),
+                ('cost_type', models.CharField(choices=[
+                 ('HOURLY', 'HOURLY'), ('PER_DAY', 'PER_DAY'), ('PER_WORK', 'PER_WORK')], max_length=128)),
+                ('base_price', models.DecimalField(
+                    decimal_places=2, max_digits=128)),
+                ('category', models.ForeignKey(limit_choices_to={
+                 'is_active': True}, on_delete=django.db.models.deletion.PROTECT, to='services.category')),
             ],
             options={
                 'verbose_name': 'Service',
