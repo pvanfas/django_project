@@ -7,6 +7,7 @@ from .models import Job, Skill
 class JobAdmin(CustomAdmin):
     pass
 
+
 # @admin.register(State)
 # class StateAdmin(CustomAdmin):
 #     pass

@@ -8,22 +8,29 @@ class Migration(migrations.Migration):
 
     initial = True
 
-    dependencies = [
-    ]
+    dependencies = []
 
     operations = [
         migrations.CreateModel(
-            name='Area',
+            name="Area",
             fields=[
-                ('id', models.UUIDField(blank=True, default=uuid.uuid4,
-                 editable=False, primary_key=True, serialize=False)),
-                ('created', models.DateTimeField(auto_now_add=True, db_index=True)),
-                ('updated', models.DateTimeField(auto_now_add=True)),
-                ('is_active', models.BooleanField(default=True)),
-                ('title', models.CharField(max_length=128)),
+                (
+                    "id",
+                    models.UUIDField(
+                        blank=True,
+                        default=uuid.uuid4,
+                        editable=False,
+                        primary_key=True,
+                        serialize=False,
+                    ),
+                ),
+                ("created", models.DateTimeField(auto_now_add=True, db_index=True)),
+                ("updated", models.DateTimeField(auto_now_add=True)),
+                ("is_active", models.BooleanField(default=True)),
+                ("title", models.CharField(max_length=128)),
             ],
             options={
-                'abstract': False,
+                "abstract": False,
             },
         ),
     ]

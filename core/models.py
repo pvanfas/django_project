@@ -26,7 +26,8 @@ class Area(BaseModel):
 
 class Country(BaseModel):
     name = models.CharField(
-        max_length=128, choices=NATIONALITY_CHOICES, default="Indian")
+        max_length=128, choices=NATIONALITY_CHOICES, default="Indian"
+    )
 
     class Meta:
         verbose_name = "Country"
@@ -36,20 +37,21 @@ class Country(BaseModel):
             return str(self.name)
 
     def get_absolute_url(self):
-        return reverse_lazy('core:country_detail', kwargs={'pk': self.pk})
+        return reverse_lazy("core:country_detail", kwargs={"pk": self.pk})
 
     def get_update_url(self):
-        return reverse_lazy('core:country_update', kwargs={'pk': self.pk})
+        return reverse_lazy("core:country_update", kwargs={"pk": self.pk})
 
     def get_delete_url(self):
-        return reverse_lazy('core:country_delete', kwargs={'pk': self.pk})
+        return reverse_lazy("core:country_delete", kwargs={"pk": self.pk})
 
     def get_fields(self):
         return [
             (
                 field.verbose_name.title(),
-                field.value_from_object(
-                    self) if field.is_relation else field.value_from_object(self),
+                field.value_from_object(self)
+                if field.is_relation
+                else field.value_from_object(self),
             )
             for field in self._meta.fields
         ]
@@ -67,20 +69,21 @@ class State(BaseModel):
             return str(self.name)
 
     def get_absolute_url(self):
-        return reverse_lazy('core:state_detail', kwargs={'pk': self.pk})
+        return reverse_lazy("core:state_detail", kwargs={"pk": self.pk})
 
     def get_update_url(self):
-        return reverse_lazy('core:state_update', kwargs={'pk': self.pk})
+        return reverse_lazy("core:state_update", kwargs={"pk": self.pk})
 
     def get_delete_url(self):
-        return reverse_lazy('core:state_delete', kwargs={'pk': self.pk})
+        return reverse_lazy("core:state_delete", kwargs={"pk": self.pk})
 
     def get_fields(self):
         return [
             (
                 field.verbose_name.title(),
-                field.value_from_object(
-                    self) if field.is_relation else field.value_from_object(self),
+                field.value_from_object(self)
+                if field.is_relation
+                else field.value_from_object(self),
             )
             for field in self._meta.fields
         ]
@@ -99,20 +102,21 @@ class District(BaseModel):
             return str(self.name)
 
     def get_absolute_url(self):
-        return reverse_lazy('core:district_detail', kwargs={'pk': self.pk})
+        return reverse_lazy("core:district_detail", kwargs={"pk": self.pk})
 
     def get_update_url(self):
-        return reverse_lazy('core:district_update', kwargs={'pk': self.pk})
+        return reverse_lazy("core:district_update", kwargs={"pk": self.pk})
 
     def get_delete_url(self):
-        return reverse_lazy('core:district_delete', kwargs={'pk': self.pk})
+        return reverse_lazy("core:district_delete", kwargs={"pk": self.pk})
 
     def get_fields(self):
         return [
             (
                 field.verbose_name.title(),
-                field.value_from_object(
-                    self) if field.is_relation else field.value_from_object(self),
+                field.value_from_object(self)
+                if field.is_relation
+                else field.value_from_object(self),
             )
             for field in self._meta.fields
         ]

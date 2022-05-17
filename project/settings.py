@@ -30,7 +30,6 @@ INSTALLED_APPS = [
     "registration",
     "django_extensions",
     "tinymce",
-
     "django.contrib.admindocs",
     "django.contrib.admin",
     "django.contrib.auth",
@@ -38,7 +37,6 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
-
     "users",
     "core",
     "services",
@@ -125,10 +123,10 @@ REST_FRAMEWORK = {
         "rest_framework.permissions.AllowAny",
     ],
     "DEFAULT_SCHEMA_CLASS": "rest_framework.schemas.coreapi.AutoSchema",
-    'DEFAULT_AUTHENTICATION_CLASSES': (
+    "DEFAULT_AUTHENTICATION_CLASSES": (
         "rest_framework_simplejwt.authentication.JWTAuthentication",
-        'rest_framework.authentication.SessionAuthentication',
-        'rest_framework.authentication.BasicAuthentication',
+        "rest_framework.authentication.SessionAuthentication",
+        "rest_framework.authentication.BasicAuthentication",
     ),
 }
 
@@ -180,17 +178,17 @@ VERSATILEIMAGEFIELD_SETTINGS = {
 
 DOMAIN = "https://project.in"
 DEFAULT_AVATAR = "http://fourquadrants.co.in/assets/images/3.png"
-CRISPY_TEMPLATE_PACK = 'bootstrap4'
+CRISPY_TEMPLATE_PACK = "bootstrap4"
 
 ACCOUNT_ACTIVATION_DAYS = 7
 REGISTRATION_AUTO_LOGIN = True
 SEND_ACTIVATION_EMAIL = False
-REGISTRATION_EMAIL_SUBJECT_PREFIX = ''
+REGISTRATION_EMAIL_SUBJECT_PREFIX = ""
 
 REGISTRATION_OPEN = True
-LOGIN_URL = '/accounts/login/'
-LOGOUT_URL = '/accounts/logout/'
-LOGIN_REDIRECT_URL = '/core/'
+LOGIN_URL = "/accounts/login/"
+LOGOUT_URL = "/accounts/logout/"
+LOGIN_REDIRECT_URL = "/core/"
 
 AUTH_USER_MODEL = "users.User"
 

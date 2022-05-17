@@ -7,22 +7,29 @@ import django.db.models.deletion
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('jobs', '0001_initial'),
+        ("jobs", "0001_initial"),
     ]
 
     operations = [
         migrations.AddField(
-            model_name='job',
-            name='job_location',
-            field=models.ForeignKey(default=1, on_delete=django.db.models.deletion.CASCADE,
-                                    related_name='applied_state', to='jobs.state'),
+            model_name="job",
+            name="job_location",
+            field=models.ForeignKey(
+                default=1,
+                on_delete=django.db.models.deletion.CASCADE,
+                related_name="applied_state",
+                to="jobs.state",
+            ),
             preserve_default=False,
         ),
         migrations.AddField(
-            model_name='state',
-            name='country',
+            model_name="state",
+            name="country",
             field=models.ForeignKey(
-                default=1, on_delete=django.db.models.deletion.PROTECT, to='jobs.country'),
+                default=1,
+                on_delete=django.db.models.deletion.PROTECT,
+                to="jobs.country",
+            ),
             preserve_default=False,
         ),
     ]

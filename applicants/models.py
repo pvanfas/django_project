@@ -20,20 +20,21 @@ class Applicant(BaseModel):
             return str(self.name)
 
     def get_absolute_url(self):
-        return reverse_lazy('applicants:applicant_detail', kwargs={'pk': self.pk})
+        return reverse_lazy("applicants:applicant_detail", kwargs={"pk": self.pk})
 
     def get_update_url(self):
-        return reverse_lazy('applicants:applicant_update', kwargs={'pk': self.pk})
+        return reverse_lazy("applicants:applicant_update", kwargs={"pk": self.pk})
 
     def get_delete_url(self):
-        return reverse_lazy('applicants:applicant_delete', kwargs={'pk': self.pk})
+        return reverse_lazy("applicants:applicant_delete", kwargs={"pk": self.pk})
 
     def get_fields(self):
         return [
             (
                 field.verbose_name.title(),
-                field.value_from_object(
-                    self) if field.is_relation else field.value_from_object(self),
+                field.value_from_object(self)
+                if field.is_relation
+                else field.value_from_object(self),
             )
             for field in self._meta.fields
         ]
@@ -57,20 +58,21 @@ class JobApplication(BaseModel):
             return str(self.name)
 
     def get_absolute_url(self):
-        return reverse_lazy('applicants:jobapplicant_detail', kwargs={'pk': self.pk})
+        return reverse_lazy("applicants:jobapplicant_detail", kwargs={"pk": self.pk})
 
     def get_update_url(self):
-        return reverse_lazy('applicants:jobapplicant_update', kwargs={'pk': self.pk})
+        return reverse_lazy("applicants:jobapplicant_update", kwargs={"pk": self.pk})
 
     def get_delete_url(self):
-        return reverse_lazy('applicants:jobapplicant_delete', kwargs={'pk': self.pk})
+        return reverse_lazy("applicants:jobapplicant_delete", kwargs={"pk": self.pk})
 
     def get_fields(self):
         return [
             (
                 field.verbose_name.title(),
-                field.value_from_object(
-                    self) if field.is_relation else field.value_from_object(self),
+                field.value_from_object(self)
+                if field.is_relation
+                else field.value_from_object(self),
             )
             for field in self._meta.fields
         ]

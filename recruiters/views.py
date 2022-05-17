@@ -14,7 +14,7 @@ class RecruiterListView(ListView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['new_link'] = reverse_lazy('recruiters:recruiter_new')
+        context["new_link"] = reverse_lazy("recruiters:recruiter_new")
         return context
 
 
@@ -37,5 +37,5 @@ class RecruiterUpdateView(UpdateView):
 
 class RecruiterDeleteView(DeleteView):
     model = Recruiter
-    template_name = 'app/common/confirm_delete.html'
-    success_url = reverse_lazy('recruiters:recruiter_list')
+    template_name = "app/common/confirm_delete.html"
+    success_url = reverse_lazy("recruiters:recruiter_list")

@@ -9,98 +9,145 @@ class Migration(migrations.Migration):
 
     initial = True
 
-    dependencies = [
-    ]
+    dependencies = []
 
     operations = [
         migrations.CreateModel(
-            name='Company',
+            name="Company",
             fields=[
-                ('id', models.UUIDField(blank=True, default=uuid.uuid4,
-                 editable=False, primary_key=True, serialize=False)),
-                ('created', models.DateTimeField(auto_now_add=True, db_index=True)),
-                ('updated', models.DateTimeField(auto_now_add=True)),
-                ('is_active', models.BooleanField(default=True)),
-                ('name', models.CharField(max_length=128)),
-                ('logo', versatileimagefield.fields.VersatileImageField(
-                    upload_to='company/logo')),
-                ('about', models.TextField()),
-                ('location', models.CharField(max_length=128)),
-                ('industry', models.CharField(max_length=128)),
+                (
+                    "id",
+                    models.UUIDField(
+                        blank=True,
+                        default=uuid.uuid4,
+                        editable=False,
+                        primary_key=True,
+                        serialize=False,
+                    ),
+                ),
+                ("created", models.DateTimeField(auto_now_add=True, db_index=True)),
+                ("updated", models.DateTimeField(auto_now_add=True)),
+                ("is_active", models.BooleanField(default=True)),
+                ("name", models.CharField(max_length=128)),
+                (
+                    "logo",
+                    versatileimagefield.fields.VersatileImageField(
+                        upload_to="company/logo"
+                    ),
+                ),
+                ("about", models.TextField()),
+                ("location", models.CharField(max_length=128)),
+                ("industry", models.CharField(max_length=128)),
             ],
             options={
-                'verbose_name': 'Company',
-                'verbose_name_plural': 'Companys',
+                "verbose_name": "Company",
+                "verbose_name_plural": "Companys",
             },
         ),
         migrations.CreateModel(
-            name='Country',
+            name="Country",
             fields=[
-                ('id', models.UUIDField(blank=True, default=uuid.uuid4,
-                 editable=False, primary_key=True, serialize=False)),
-                ('created', models.DateTimeField(auto_now_add=True, db_index=True)),
-                ('updated', models.DateTimeField(auto_now_add=True)),
-                ('is_active', models.BooleanField(default=True)),
-                ('name', models.CharField(max_length=128)),
+                (
+                    "id",
+                    models.UUIDField(
+                        blank=True,
+                        default=uuid.uuid4,
+                        editable=False,
+                        primary_key=True,
+                        serialize=False,
+                    ),
+                ),
+                ("created", models.DateTimeField(auto_now_add=True, db_index=True)),
+                ("updated", models.DateTimeField(auto_now_add=True)),
+                ("is_active", models.BooleanField(default=True)),
+                ("name", models.CharField(max_length=128)),
             ],
             options={
-                'verbose_name': 'Country',
-                'verbose_name_plural': 'Countris',
+                "verbose_name": "Country",
+                "verbose_name_plural": "Countris",
             },
         ),
         migrations.CreateModel(
-            name='Job',
+            name="Job",
             fields=[
-                ('id', models.UUIDField(blank=True, default=uuid.uuid4,
-                 editable=False, primary_key=True, serialize=False)),
-                ('created', models.DateTimeField(auto_now_add=True, db_index=True)),
-                ('updated', models.DateTimeField(auto_now_add=True)),
-                ('is_active', models.BooleanField(default=True)),
-                ('job_title', models.CharField(max_length=128)),
-                ('job_post', models.CharField(max_length=128)),
-                ('job_category', models.CharField(max_length=128)),
-                ('company', models.CharField(max_length=128)),
-                ('job_requirment', models.CharField(max_length=128)),
-                ('salary', models.CharField(max_length=128)),
-                ('job_description', models.TextField()),
+                (
+                    "id",
+                    models.UUIDField(
+                        blank=True,
+                        default=uuid.uuid4,
+                        editable=False,
+                        primary_key=True,
+                        serialize=False,
+                    ),
+                ),
+                ("created", models.DateTimeField(auto_now_add=True, db_index=True)),
+                ("updated", models.DateTimeField(auto_now_add=True)),
+                ("is_active", models.BooleanField(default=True)),
+                ("job_title", models.CharField(max_length=128)),
+                ("job_post", models.CharField(max_length=128)),
+                ("job_category", models.CharField(max_length=128)),
+                ("company", models.CharField(max_length=128)),
+                ("job_requirment", models.CharField(max_length=128)),
+                ("salary", models.CharField(max_length=128)),
+                ("job_description", models.TextField()),
             ],
             options={
-                'verbose_name': 'Job',
-                'verbose_name_plural': 'Jobs',
+                "verbose_name": "Job",
+                "verbose_name_plural": "Jobs",
             },
         ),
         migrations.CreateModel(
-            name='profile',
+            name="profile",
             fields=[
-                ('id', models.UUIDField(blank=True, default=uuid.uuid4,
-                 editable=False, primary_key=True, serialize=False)),
-                ('created', models.DateTimeField(auto_now_add=True, db_index=True)),
-                ('updated', models.DateTimeField(auto_now_add=True)),
-                ('is_active', models.BooleanField(default=True)),
-                ('name', models.CharField(max_length=128)),
-                ('address', models.TextField()),
-                ('image', versatileimagefield.fields.VersatileImageField(
-                    upload_to='profile/prof_image')),
-                ('resume', models.FileField(upload_to='profile/resumes')),
+                (
+                    "id",
+                    models.UUIDField(
+                        blank=True,
+                        default=uuid.uuid4,
+                        editable=False,
+                        primary_key=True,
+                        serialize=False,
+                    ),
+                ),
+                ("created", models.DateTimeField(auto_now_add=True, db_index=True)),
+                ("updated", models.DateTimeField(auto_now_add=True)),
+                ("is_active", models.BooleanField(default=True)),
+                ("name", models.CharField(max_length=128)),
+                ("address", models.TextField()),
+                (
+                    "image",
+                    versatileimagefield.fields.VersatileImageField(
+                        upload_to="profile/prof_image"
+                    ),
+                ),
+                ("resume", models.FileField(upload_to="profile/resumes")),
             ],
             options={
-                'verbose_name': 'Profile',
-                'verbose_name_plural': 'Profiles',
+                "verbose_name": "Profile",
+                "verbose_name_plural": "Profiles",
             },
         ),
         migrations.CreateModel(
-            name='State',
+            name="State",
             fields=[
-                ('id', models.UUIDField(blank=True, default=uuid.uuid4,
-                 editable=False, primary_key=True, serialize=False)),
-                ('created', models.DateTimeField(auto_now_add=True, db_index=True)),
-                ('updated', models.DateTimeField(auto_now_add=True)),
-                ('is_active', models.BooleanField(default=True)),
-                ('name', models.CharField(max_length=128)),
+                (
+                    "id",
+                    models.UUIDField(
+                        blank=True,
+                        default=uuid.uuid4,
+                        editable=False,
+                        primary_key=True,
+                        serialize=False,
+                    ),
+                ),
+                ("created", models.DateTimeField(auto_now_add=True, db_index=True)),
+                ("updated", models.DateTimeField(auto_now_add=True)),
+                ("is_active", models.BooleanField(default=True)),
+                ("name", models.CharField(max_length=128)),
             ],
             options={
-                'verbose_name': 'State',
-                'verbose_name_plural': 'States',
+                "verbose_name": "State",
+                "verbose_name_plural": "States",
             },
         ),
     ]

@@ -14,26 +14,28 @@ urlpatterns = (
     [
         path("admin/", admin.site.urls),
         path("", include_docs_urls(title="Project API Documentation")),
-        path('schema', schema_view),
-        path('accounts/', include('registration.backends.simple.urls')),
-
+        path("schema", schema_view),
+        path("accounts/", include("registration.backends.simple.urls")),
         path("app/", include("core.urls", namespace="core")),
         path("users/", include("users.urls", namespace="users")),
         path("services/", include("services.urls", namespace="services")),
         path("jobs/", include("jobs.urls", namespace="jobs")),
         path("applicants/", include("applicants.urls", namespace="applicants")),
         path("recruiters/", include("recruiters.urls", namespace="recruiters")),
-
-
         path("api/v1/users/", include("api.v1.users.urls", namespace="api_v1_users")),
-        path("api/v1/services/", include("api.v1.services.urls",
-             namespace="api_v1_services")),
-
-        path("sitemap.xml", TemplateView.as_view(
-            template_name="sitemap.xml", content_type="text/xml")),
-        path("robots.txt", TemplateView.as_view(
-            template_name="robots.txt", content_type="text/plain")),
-        path('tinymce/', include('tinymce.urls')),
+        path(
+            "api/v1/services/",
+            include("api.v1.services.urls", namespace="api_v1_services"),
+        ),
+        path(
+            "sitemap.xml",
+            TemplateView.as_view(template_name="sitemap.xml", content_type="text/xml"),
+        ),
+        path(
+            "robots.txt",
+            TemplateView.as_view(template_name="robots.txt", content_type="text/plain"),
+        ),
+        path("tinymce/", include("tinymce.urls")),
     ]
     + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
     + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

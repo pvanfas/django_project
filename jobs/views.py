@@ -12,7 +12,7 @@ class JobListView(ListView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['new_link'] = reverse_lazy('jobs:job_new')
+        context["new_link"] = reverse_lazy("jobs:job_new")
         return context
 
 
@@ -35,8 +35,8 @@ class JobUpdateView(UpdateView):
 
 class JobDeleteView(DeleteView):
     model = Job
-    template_name = 'app/common/confirm_delete.html'
-    success_url = reverse_lazy('services:job_list')
+    template_name = "app/common/confirm_delete.html"
+    success_url = reverse_lazy("services:job_list")
 
 
 class SkillListView(ListView):
@@ -45,7 +45,7 @@ class SkillListView(ListView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['new_link'] = reverse_lazy('jobs:skill_new')
+        context["new_link"] = reverse_lazy("jobs:skill_new")
         return context
 
 
@@ -68,5 +68,5 @@ class SkillUpdateView(UpdateView):
 
 class SkillDeleteView(DeleteView):
     model = Skill
-    template_name = 'app/common/confirm_delete.html'
-    success_url = reverse_lazy('jobs:skill_list')
+    template_name = "app/common/confirm_delete.html"
+    success_url = reverse_lazy("jobs:skill_list")

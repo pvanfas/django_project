@@ -8,27 +8,34 @@ class Migration(migrations.Migration):
 
     initial = True
 
-    dependencies = [
-    ]
+    dependencies = []
 
     operations = [
         migrations.CreateModel(
-            name='Recruiter',
+            name="Recruiter",
             fields=[
-                ('id', models.UUIDField(blank=True, default=uuid.uuid4,
-                 editable=False, primary_key=True, serialize=False)),
-                ('created', models.DateTimeField(auto_now_add=True, db_index=True)),
-                ('updated', models.DateTimeField(auto_now_add=True)),
-                ('is_active', models.BooleanField(default=True)),
-                ('name', models.CharField(max_length=128)),
-                ('role', models.CharField(max_length=128)),
-                ('skill', models.CharField(max_length=128)),
-                ('phone', models.CharField(max_length=128)),
-                ('date_of_birth', models.DateField()),
+                (
+                    "id",
+                    models.UUIDField(
+                        blank=True,
+                        default=uuid.uuid4,
+                        editable=False,
+                        primary_key=True,
+                        serialize=False,
+                    ),
+                ),
+                ("created", models.DateTimeField(auto_now_add=True, db_index=True)),
+                ("updated", models.DateTimeField(auto_now_add=True)),
+                ("is_active", models.BooleanField(default=True)),
+                ("name", models.CharField(max_length=128)),
+                ("role", models.CharField(max_length=128)),
+                ("skill", models.CharField(max_length=128)),
+                ("phone", models.CharField(max_length=128)),
+                ("date_of_birth", models.DateField()),
             ],
             options={
-                'verbose_name': 'Applicant',
-                'verbose_name_plural': 'Applicants',
+                "verbose_name": "Applicant",
+                "verbose_name_plural": "Applicants",
             },
         ),
     ]

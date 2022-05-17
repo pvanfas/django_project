@@ -12,7 +12,7 @@ class JobApplicationListView(ListView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['new_link'] = reverse_lazy('applicants:jobapplication_new')
+        context["new_link"] = reverse_lazy("applicants:jobapplication_new")
         return context
 
 
@@ -35,8 +35,8 @@ class JobApplicationUpdateView(UpdateView):
 
 class JobApplicationDeleteView(DeleteView):
     model = JobApplication
-    template_name = 'app/common/confirm_delete.html'
-    success_url = reverse_lazy('applicants:jobapplication_list')
+    template_name = "app/common/confirm_delete.html"
+    success_url = reverse_lazy("applicants:jobapplication_list")
 
 
 class ApplicantListView(ListView):
@@ -45,7 +45,7 @@ class ApplicantListView(ListView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['new_link'] = reverse_lazy('applicants:applicant_new')
+        context["new_link"] = reverse_lazy("applicants:applicant_new")
         return context
 
 
@@ -68,5 +68,5 @@ class ApplicantUpdateView(UpdateView):
 
 class ApplicantDeleteView(DeleteView):
     model = Applicant
-    template_name = 'app/common/confirm_delete.html'
-    success_url = reverse_lazy('applicants:applicant_list')
+    template_name = "app/common/confirm_delete.html"
+    success_url = reverse_lazy("applicants:applicant_list")

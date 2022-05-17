@@ -7,33 +7,35 @@ import django.db.models.deletion
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('core', '0002_country_state_district'),
-        ('jobs', '0002_job_job_location_state_country'),
+        ("core", "0002_country_state_district"),
+        ("jobs", "0002_job_job_location_state_country"),
     ]
 
     operations = [
         migrations.DeleteModel(
-            name='profile',
+            name="profile",
         ),
         migrations.RemoveField(
-            model_name='state',
-            name='country',
+            model_name="state",
+            name="country",
         ),
         migrations.AlterModelOptions(
-            name='company',
-            options={'verbose_name': 'Company',
-                     'verbose_name_plural': 'Companies'},
+            name="company",
+            options={"verbose_name": "Company", "verbose_name_plural": "Companies"},
         ),
         migrations.AlterField(
-            model_name='job',
-            name='job_location',
-            field=models.ForeignKey(on_delete=django.db.models.deletion.CASCADE,
-                                    related_name='applied_state', to='core.state'),
+            model_name="job",
+            name="job_location",
+            field=models.ForeignKey(
+                on_delete=django.db.models.deletion.CASCADE,
+                related_name="applied_state",
+                to="core.state",
+            ),
         ),
         migrations.DeleteModel(
-            name='Country',
+            name="Country",
         ),
         migrations.DeleteModel(
-            name='State',
+            name="State",
         ),
     ]

@@ -16,7 +16,7 @@ class StateListView(ListView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['new_link'] = reverse_lazy('core:state_new')
+        context["new_link"] = reverse_lazy("core:state_new")
         return context
 
 
@@ -39,8 +39,8 @@ class StateUpdateView(UpdateView):
 
 class StateDeleteView(DeleteView):
     model = State
-    template_name = 'app/common/confirm_delete.html'
-    success_url = reverse_lazy('core:state_list')
+    template_name = "app/common/confirm_delete.html"
+    success_url = reverse_lazy("core:state_list")
 
 
 class CountryListView(ListView):
@@ -49,7 +49,7 @@ class CountryListView(ListView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['new_link'] = reverse_lazy('core:country_new')
+        context["new_link"] = reverse_lazy("core:country_new")
         return context
 
 
@@ -72,8 +72,8 @@ class CountryUpdateView(UpdateView):
 
 class CountryDeleteView(DeleteView):
     model = Country
-    template_name = 'app/common/confirm_delete.html'
-    success_url = reverse_lazy('core:country_list')
+    template_name = "app/common/confirm_delete.html"
+    success_url = reverse_lazy("core:country_list")
 
 
 class DistrictListView(ListView):
@@ -82,7 +82,7 @@ class DistrictListView(ListView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['new_link'] = reverse_lazy('core:district_new')
+        context["new_link"] = reverse_lazy("core:district_new")
         return context
 
 
@@ -105,5 +105,5 @@ class DistrictUpdateView(UpdateView):
 
 class DistrictDeleteView(DeleteView):
     model = District
-    template_name = 'app/common/confirm_delete.html'
-    success_url = reverse_lazy('core:district_list')
+    template_name = "app/common/confirm_delete.html"
+    success_url = reverse_lazy("core:district_list")
