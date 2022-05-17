@@ -1,7 +1,8 @@
 from django.db import models
 from django.urls import reverse_lazy
-from core.models import BaseModel
 from versatileimagefield.fields import VersatileImageField
+
+from core.models import BaseModel
 
 
 class Applicant(BaseModel):

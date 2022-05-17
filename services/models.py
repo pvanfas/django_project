@@ -1,8 +1,9 @@
 from django.db import models
-from versatileimagefield.fields import VersatileImageField
 from django.urls import reverse_lazy
-from core.models import BaseModel
 from tinymce.models import HTMLField
+from versatileimagefield.fields import VersatileImageField
+
+from core.models import BaseModel
 
 
 class Category(BaseModel):

@@ -2,6 +2,7 @@ import uuid
 
 from django.db import models
 from django.urls import reverse_lazy
+
 from core.choices import NATIONALITY_CHOICES
 
 

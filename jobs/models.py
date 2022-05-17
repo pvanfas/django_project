@@ -1,8 +1,9 @@
 from django.db import models
-from core.models import BaseModel, State
 from django.urls import reverse_lazy
-from core.choices import NATIONALITY_CHOICES, PASSOUT_CHOICES, ROLE_CHOICES
 from versatileimagefield.fields import VersatileImageField
+
+from core.choices import NATIONALITY_CHOICES, PASSOUT_CHOICES, ROLE_CHOICES
+from core.models import BaseModel, State
 
 
 class Skill(BaseModel):

@@ -3,7 +3,7 @@ from django.urls import reverse_lazy
 from django.views.generic import DetailView, ListView
 from django.views.generic.edit import CreateView, DeleteView, UpdateView
 
-from applicants.models import JobApplication, Applicant
+from applicants.models import Applicant, JobApplication
 
 
 class JobApplicationListView(ListView):

@@ -1,9 +1,12 @@
-from django.urls import reverse_lazy
-from django.views.generic import ListView, DetailView, TemplateView
-from django.views.generic.edit import FormView, CreateView, UpdateView, DeleteView
-from django.http.response import HttpResponse
-from core.models import State, Country, District
 import json
+
+from django.http.response import HttpResponse
+from django.urls import reverse_lazy
+from django.views.generic import DetailView, ListView, TemplateView
+from django.views.generic.edit import (CreateView, DeleteView, FormView,
+                                       UpdateView)
+
+from core.models import Country, District, State
 
 
 class Index(TemplateView):
