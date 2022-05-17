@@ -1,8 +1,8 @@
 from django.contrib import admin
 
+from .models import Job
+from .models import Skill
 from core.custom_admin import CustomAdmin
-
-from .models import Job, Skill
 
 
 @admin.register(Job)

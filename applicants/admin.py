@@ -1,8 +1,8 @@
 from django.contrib import admin
 
+from .models import Applicant
+from .models import JobApplication
 from core.custom_admin import CustomAdmin
-
-from .models import Applicant, JobApplication
 
 # Register your models here.
 
